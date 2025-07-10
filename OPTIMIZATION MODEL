@@ -1,0 +1,25 @@
+# Importing necessary libraries
+from pulp import LpProblem, LpVariable, LpMaximize, lpSum, LpStatus
+
+# Defining the problem
+problem = LpProblem("Business_Optimization_Problem", LpMaximize)
+
+# Defining decision variables
+x1 = LpVariable("x1", lowBound=0)  # Quantity of product 1
+x2 = LpVariable("x2", lowBound=0)  # Quantity of product 2
+
+# Objective function
+problem += 40 * x1 + 30 * x2, "Total_Profit"
+
+# Constraints
+problem += 2 * x1 + x2 <= 100, "Resource_Constraint_1"
+problem += x1 + 2 * x2 <= 80, "Resource_Constraint_2"
+
+# Solving the problem
+problem.solve()
+
+# Outputting the results
+print("Status:", LpStatus[problem.status])
+print("Optimal value of x1:", x1.varValue)
+print("Optimal value of x2:", x2.varValue)
+print("Maximum Profit:", problem.objective.value())
