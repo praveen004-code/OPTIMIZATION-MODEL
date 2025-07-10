@@ -17,3 +17,6 @@ The objective of this program is to maximize profit by determining the optimal q
 
 # OUTPUT :
 
+![Image](https://github.com/user-attachments/assets/49723144-c974-4356-86c0-fd88df18b7d5)
+
+
